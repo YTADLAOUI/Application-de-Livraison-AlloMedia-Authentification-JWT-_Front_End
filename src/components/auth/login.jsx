@@ -19,7 +19,13 @@ return (
               <input type="password" placeholder="Enter Password"
                   class="w-full input input-bordered" />
           </div>
+          <div className="flex justify-between">
           <a href="#" class="text-xs text-gray-600 hover:underline hover:text-blue-600">Forget Password?</a>
+          <div>
+          </div>
+          <a href="/register" class="text-xs text-gray-600 hover:underline hover:text-blue-600">Créer nouveau compte</a>
+          </div>
+          
           <div>
               <button class="btn btn-block">Login</button>
           </div>
