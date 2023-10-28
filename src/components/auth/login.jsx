@@ -1,11 +1,15 @@
 import axios from "axios"
+import Cookies from "js-cookie"
 import React, { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const Login=()=>{
+    const navigate=useNavigate()
    const [formData,setData]=useState({
     email : "",
     password : ""
   })
+
   const handelInputChange=(e)=>{
     console.log(e.target.value)
         setData({
@@ -18,7 +22,11 @@ const handelSubmuit= async (e) => {
     e.preventDefault();
     try{
       const response= await axios.post("http://localhost:8000/api/auth/login",formData);
-      console.log(response.data); 
+      console.log(JSON.stringify(response.data.user))
+
+        Cookies.set('user',JSON.stringify(response.data.user));
+        Cookies.set('token',response.data.loginToken);
+        navigate("/dashboard");
     }catch(err){
             console.log(err.message);
     }
