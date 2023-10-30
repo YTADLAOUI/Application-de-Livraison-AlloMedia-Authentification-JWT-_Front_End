@@ -29,7 +29,6 @@ function VerificationEmail() {
 
   return (
     <div>
-      <p>VerificationEmail</p>
     </div>
   );
 }

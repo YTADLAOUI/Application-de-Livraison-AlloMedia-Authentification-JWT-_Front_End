@@ -1,15 +1,20 @@
 import axios from "axios"
 import Cookies from "js-cookie"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useSelector,useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom"
-
-
-
+import {toast } from 'react-toastify';
 export const Login=()=>{
     const data= useSelector((state) => state.res.res) ;
-    if(data) console.log(data)
-    const navigate=useNavigate()
+    // console.log(data.payload.success,"hello");
+    useEffect(
+        ()=>{
+            if(data.payload?.success) toast.success(data.payload.success, { position: toast.POSITION.TOP_RIGHT});
+            if(data.payload?.error) toast.error(data.payload.error, { position: toast.POSITION.TOP_RIGHT});
+        },[data]
+    )
+    
+    const navigate=useNavigate();
    const [formData,setData]=useState({
     email : "",
     password : ""
@@ -64,6 +69,7 @@ return (
           </div>
       </form>
   </div>
+  
 </div>
 )
 }

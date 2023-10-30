@@ -6,8 +6,11 @@ import { ForgetPass } from './components/auth/forgetPass';
 import { Restpass } from './components/auth/restPass';
 import Index from './components/home/Index';
 import VerificationEmail from './components/auth/verificationEmail';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function App() {
   return (
+    <>
     <BrowserRouter>
     <Routes>
       <Route path='/login' element={<Login/>} />
@@ -18,7 +21,8 @@ function App() {
       <Route path='/verify/:token' element={<VerificationEmail/>} />
     </Routes>
     </BrowserRouter>
-    
+    <ToastContainer />
+    </>
   );
 }
 export default App;
