@@ -1,9 +1,14 @@
 import axios from "axios"
 import Cookies from "js-cookie"
 import React, { useState } from "react"
+import { useSelector,useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom"
 
+
+
 export const Login=()=>{
+    const data= useSelector((state) => state.res.res) ;
+    if(data) console.log(data)
     const navigate=useNavigate()
    const [formData,setData]=useState({
     email : "",
@@ -11,7 +16,7 @@ export const Login=()=>{
   })
 
   const handelInputChange=(e)=>{
-    console.log(e.target.value)
+    // console.log(e.target.value)
         setData({
             ...formData,
             [e.target.name]: e.target.value
@@ -22,8 +27,7 @@ const handelSubmuit= async (e) => {
     e.preventDefault();
     try{
       const response= await axios.post("http://localhost:8000/api/auth/login",formData);
-      console.log(JSON.stringify(response.data.user))
-
+    //   console.log(JSON.stringify(response.data.user))
         Cookies.set('user',JSON.stringify(response.data.user));
         Cookies.set('token',response.data.loginToken);
         navigate("/dashboard");
@@ -32,8 +36,8 @@ const handelSubmuit= async (e) => {
     }
 }
 return (
-  <div className="relative flex flex-col items-center justify-center h-screen overflow-hidden">
-  <div className="w-full p-6 bg-white border-t-4 border-gray-600 rounded-md shadow-md border-top lg:max-w-lg">
+  <div className="relative flex flex-col items-center justify-center h-screen overflow-hidden p-6">
+  <div className=" max-w-sm w-full p-6 bg-white border-t-4 border-gray-600 rounded-md shadow-md border-top lg:max-w-lg">
       <h1 className="text-3xl font-semibold text-center text-gray-700">Allo livreur</h1>
       <form className="space-y-4" onSubmit={handelSubmuit} method="POST">
           <div>

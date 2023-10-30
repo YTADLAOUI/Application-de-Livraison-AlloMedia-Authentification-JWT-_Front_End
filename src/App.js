@@ -5,6 +5,7 @@ import './index.css'
 import { ForgetPass } from './components/auth/forgetPass';
 import { Restpass } from './components/auth/restPass';
 import Index from './components/home/Index';
+import VerificationEmail from './components/auth/verificationEmail';
 function App() {
   return (
     <BrowserRouter>
@@ -14,6 +15,7 @@ function App() {
       <Route path='/forgetPassword' element={<ForgetPass/>} />
       <Route path='/resetPassword/:token' element={<Restpass/>} />
       <Route path='/dashboard' element={<Index/>} />
+      <Route path='/verify/:token' element={<VerificationEmail/>} />
     </Routes>
     </BrowserRouter>
     
