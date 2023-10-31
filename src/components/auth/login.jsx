@@ -42,7 +42,7 @@ const handelSubmuit= async (data) => {
     }
 }
 return (
-  <div className="relative flex flex-col items-center justify-center h-screen overflow-hidden p-6">
+  <div className="relative flex flex-col items-center justify-center bg-slate-100 h-screen overflow-hidden p-6">
   <div className=" max-w-sm w-full p-6 bg-white border-t-4 border-gray-600 rounded-md shadow-md border-top lg:max-w-lg">
       <h1 className="text-3xl font-semibold text-center text-gray-700">Allo marhaba</h1>
       <form className="space-y-4" onSubmit={handleSubmit(handelSubmuit)} method="POST">
@@ -62,10 +62,10 @@ return (
                    <span className="text-red-500 text-sm">{errors.password?.message}</span>
           </div>
           <div className="flex justify-between">
-          <a href="/forgetPassword" className="text-xs text-gray-600 hover:underline hover:text-blue-600">Forget Password?</a>
+          <a onClick={()=>{navigate("/forgetPassword")}} className="text-xs text-gray-600 hover:underline hover:text-blue-600">Forget Password?</a>
           <div>
           </div>
-          <a href="/register" className="text-xs text-gray-600 hover:underline hover:text-blue-600">Créer nouveau compte</a>
+          <a onClick={()=>{navigate("/register")}} className="text-xs text-gray-600 hover:underline hover:text-blue-600">Créer nouveau compte</a>
           </div>       
           <div>
               <button type="submit" className="btn btn-block">Login</button>
