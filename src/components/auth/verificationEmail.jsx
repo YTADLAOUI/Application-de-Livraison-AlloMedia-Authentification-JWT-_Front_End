@@ -23,7 +23,6 @@ function VerificationEmail() {
         console.error('Error:', error);
       }
     }
-
     verifyEmail();
   }, [token]);
 

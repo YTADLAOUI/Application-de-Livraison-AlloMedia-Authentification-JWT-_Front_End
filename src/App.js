@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import {Login} from './components/auth/login';
 import { Register } from './components/auth/register';
 import './index.css'
@@ -8,16 +8,19 @@ import Index from './components/home/Index';
 import VerificationEmail from './components/auth/verificationEmail';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from 'js-cookie';
 function App() {
+  const isAuthenticated = !!Cookies.get('token'); 
+
   return (
     <>
     <BrowserRouter>
     <Routes>
-      <Route path='/login' element={<Login/>} />
-      <Route path='/register' element={<Register/>} />
-      <Route path='/forgetPassword' element={<ForgetPass/>} />
-      <Route path='/resetPassword/:token' element={<Restpass/>} />
-      <Route path='/dashboard' element={<Index/>} />
+      <Route path='/login' element={isAuthenticated ? <Navigate to="/dashboard" />:<Login/>} />
+      <Route path='/register' element={isAuthenticated ? <Navigate to="/dashboard" />:<Register/>} />
+      <Route path='/forgetPassword' element={isAuthenticated ? <Navigate to="/dashboard" />:<ForgetPass/>} />
+      <Route path='/resetPassword/:token' element={isAuthenticated ? <Navigate to="/dashboard" />:<Restpass/>} />
+      <Route path='/dashboard' element={isAuthenticated ? <Index/>:<Navigate to="/login" />} />
       <Route path='/verify/:token' element={<VerificationEmail/>} />
     </Routes>
     </BrowserRouter>

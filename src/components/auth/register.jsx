@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
   return (
     <div className="relative flex flex-col justify-center h-screen overflow-hidden p-6">
     <div className=" max-w-sm w-full p-6 m-auto bg-white rounded-md shadow-md ring-2 ring-gray-800/50 lg:max-w-xl">
-        <h1 className="text-3xl font-semibold text-center text-gray-700">Allo Livreur</h1>
+        <h1 className="text-3xl font-semibold text-center text-gray-700">Allo merhaba</h1>
        
           <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="relative z-0 w-full mb-6 group">
