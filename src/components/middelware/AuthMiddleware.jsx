@@ -8,7 +8,7 @@ const AuthMiddleware = ({children}) => {
     const isAuthenticated = !!Cookies.get('token'); 
     if (isAuthenticated){ return children}
     else {
-     return <Navigate to="/login" />
+     return <Navigate to="/login"/>
     }
   }
 export default AuthMiddleware
