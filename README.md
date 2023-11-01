@@ -1,6 +1,28 @@
 # Application-de-Livraison-AlloMedia-Authentification-JWT-
 Application de Livraison AlloMedia AuthentificationJWT_front_end
 
+## Prerequisites
+Before you begin, ensure you have met the following requirements:
+
+- Node.js and npm installed on your machine.
+- Git installed on your machine.
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps.
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/YTADLAOUI/Application-de-Livraison-AlloMedia-Authentification-JWT-_Front_End.git
+    ```
+2. Navigate to the project directory:
+   ```bash
+   cd Application-de-Livraison-AlloMedia-Authentification-JWT-_Front_End
+   ```
+3. Install dependencies using npm:
+    ```bash
+    npm install
+    ```
 
 ## Available Scripts
 
